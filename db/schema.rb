@@ -47,11 +47,10 @@ ActiveRecord::Schema.define(version: 2020_05_28_175602) do
     t.index ["title"], name: "index_memes_on_title", unique: true
   end
 
-  create_table "memes_tags", force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.bigint "meme_id", null: false
-    t.index ["meme_id"], name: "index_memes_tags_on_meme_id"
-    t.index ["tag_id"], name: "index_memes_tags_on_tag_id"
+  create_table "memes_tags", id: false, force: :cascade do |t|
+    t.bigint "meme_id"
+    t.bigint "tag_id"
+    t.index ["meme_id", "tag_id"], name: "index_memes_tags_on_meme_id_and_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|

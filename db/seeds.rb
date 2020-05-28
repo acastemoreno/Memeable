@@ -11,7 +11,7 @@ user = User.create(username: "Holi", email: "holi")
 p user.errors
 category = Category.create(name: "holi")
 p category.errors
-meme = Meme.create(title: "amiguito", source: "asd", owner: user, category: category)
+meme = Meme.create(title: "amiguito", source: "asd", owner: user, category: category, type: "holi")
 p meme.errors
 comment = Comment.create(body: "body", user: user, meme: meme)
 p comment.errors
