@@ -1,3 +1,54 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Lilita One', cursive;
+  font-style: normal;
+}
+
+header{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+  border-bottom: 1px solid #000000;
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  grid-template-rows: auto;
+  align-items: end;
+  padding: 15px 10px 15px 10px;
+
+  *{
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .pages_links, .login_menu{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+
+    p, a{
+      white-space: nowrap;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 35px;
+      color: #000000;
+      text-decoration: none;
+
+      margin-right: 15px;
+    }
+
+    p:last-child, a:last-child{
+      margin-right: 0px;
+    }
+  }
+
+  .pages_links{
+    padding-left: 22px;
+  }
+
+}
