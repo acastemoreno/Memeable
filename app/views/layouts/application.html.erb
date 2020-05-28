@@ -11,6 +11,7 @@
   </head>
 
   <body>
+
     <header>
       <%= image_tag "memeable_logo.png" %>
       <nav class="pages_links">
@@ -29,9 +30,14 @@
       </div>
     </header>
 
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <footer>
+      asa
+    </footer>
   </body>
 </html>
