@@ -3,7 +3,7 @@ class CreateMemes < ActiveRecord::Migration[6.0]
     create_table :memes do |t|
       t.string :title, null: false
       t.string :type
-      t.string :source, null: false
+      t.string :url_source, null: false
       t.integer :votes_count, default: 0
       t.integer :comments_count, default: 0
       t.references :category, null: false, foreign_key: true

@@ -5,16 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-tag = Tag.create(name: "funny")
+tag = Tag.find_or_create_by(name: "funny")
 
-user = User.create(username: "Holi", email: "holi")
-user_votator = User.create(username: "Votator", email: "vot")
+user = User.find_or_create_by(username: "Holi", email: "holi")
+user_votator = User.find_or_create_by(username: "Votator", email: "vot")
 
-category = Category.create(name: "holi")
+category = Category.find_or_create_by(name: "holi")
 
-meme = Meme.create(title: "amiguito", source: "asd", owner: user, category: category, type: "holi")
+meme = Meme.find_or_create_by(title: "amiguito", url_source: "asd", owner: user, category: category, type: "holi")
 
-comment = Comment.create(body: "body", user: user, meme: meme)
+meme.tags << tag
+
+comment = Comment.find_or_create_by(body: "body", user: user, meme: meme)
 
 meme.votators << user_votator
 
