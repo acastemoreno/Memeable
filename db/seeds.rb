@@ -6,34 +6,44 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 tag = Tag.create(name: "funny")
-p tag.errors
-user = User.create(username: "Holi", email: "holi")
-p user.errors
-category = Category.create(name: "holi")
-p category.errors
-meme = Meme.create(title: "amiguito", source: "asd", owner: user, category: category, type: "holi")
-p meme.errors
-comment = Comment.create(body: "body", user: user, meme: meme)
-p comment.errors
 
-p "tag \n"
+user = User.create(username: "Holi", email: "holi")
+user_votator = User.create(username: "Votator", email: "vot")
+
+category = Category.create(name: "holi")
+
+meme = Meme.create(title: "amiguito", source: "asd", owner: user, category: category, type: "holi")
+
+comment = Comment.create(body: "body", user: user, meme: meme)
+
+meme.votators << user_votator
+
+p "tag"
+p "--------"
 p tag.memes
 
-p "user \n"
+p "user"
+p "--------"
 p user.memes
 p user.comments
 p user.commented_memes
+user.voted_memes
 
-p "category \n"
+p "category"
+p "--------"
 p category.memes
 
-p "meme \n"
+p "meme"
+p "--------"
 p meme.category
 p meme.owner
 p meme.tags
 p meme.comments
 p meme.commentators
+p meme.votators
 
-p "comment \n"
-comment.user
-comment.meme
+p "comment"
+p "--------"
+p comment.user
+p comment.meme
+

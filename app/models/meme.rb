@@ -7,4 +7,6 @@ class Meme < ApplicationRecord
 
   has_many :comments
   has_many :commentators, through: :comments, source: :user
+
+  has_and_belongs_to_many :votators, join_table: "user_votes_memes", class_name: "User"
 end
