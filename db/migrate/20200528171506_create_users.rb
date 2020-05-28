@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     create_table :users do |t|
       t.string :username, null: false
       t.string :email, null: false
-      t.integer :memes_count
+      t.integer :memes_count, default: 0
 
       t.timestamps
     end

@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-    has_many :memes
+  has_many :memes
 end

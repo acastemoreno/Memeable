@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_174320) do
+ActiveRecord::Schema.define(version: 2020_05_28_175602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_174320) do
     t.string "title", null: false
     t.string "type"
     t.string "source", null: false
-    t.integer "votes_count"
-    t.integer "comments_count"
+    t.integer "votes_count", default: 0
+    t.integer "comments_count", default: 0
     t.bigint "category_id", null: false
     t.bigint "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -54,10 +54,17 @@ ActiveRecord::Schema.define(version: 2020_05_28_174320) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "tags_memes", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "meme_id", null: false
+    t.index ["meme_id"], name: "index_tags_memes_on_meme_id"
+    t.index ["tag_id"], name: "index_tags_memes_on_tag_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "email", null: false
-    t.integer "memes_count"
+    t.integer "memes_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -68,4 +75,6 @@ ActiveRecord::Schema.define(version: 2020_05_28_174320) do
   add_foreign_key "comments", "users"
   add_foreign_key "memes", "categories"
   add_foreign_key "memes", "users", column: "owner_id"
+  add_foreign_key "tags_memes", "memes"
+  add_foreign_key "tags_memes", "tags"
 end
