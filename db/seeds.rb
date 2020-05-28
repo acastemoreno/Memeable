@@ -13,3 +13,27 @@ category = Category.create(name: "holi")
 p category.errors
 meme = Meme.create(title: "amiguito", source: "asd", owner: user, category: category)
 p meme.errors
+comment = Comment.create(body: "body", user: user, meme: meme)
+p comment.errors
+
+p "tag \n"
+p tag.memes
+
+p "user \n"
+p user.memes
+p user.comments
+p user.commented_memes
+
+p "category \n"
+p category.memes
+
+p "meme \n"
+p meme.category
+p meme.owner
+p meme.tags
+p meme.comments
+p meme.commentators
+
+p "comment \n"
+comment.user
+comment.meme

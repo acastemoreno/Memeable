@@ -47,18 +47,18 @@ ActiveRecord::Schema.define(version: 2020_05_28_175602) do
     t.index ["title"], name: "index_memes_on_title", unique: true
   end
 
+  create_table "memes_tags", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "meme_id", null: false
+    t.index ["meme_id"], name: "index_memes_tags_on_meme_id"
+    t.index ["tag_id"], name: "index_memes_tags_on_tag_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_tags_on_name", unique: true
-  end
-
-  create_table "tags_memes", force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.bigint "meme_id", null: false
-    t.index ["meme_id"], name: "index_tags_memes_on_meme_id"
-    t.index ["tag_id"], name: "index_tags_memes_on_tag_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,6 +75,6 @@ ActiveRecord::Schema.define(version: 2020_05_28_175602) do
   add_foreign_key "comments", "users"
   add_foreign_key "memes", "categories"
   add_foreign_key "memes", "users", column: "owner_id"
-  add_foreign_key "tags_memes", "memes"
-  add_foreign_key "tags_memes", "tags"
+  add_foreign_key "memes_tags", "memes"
+  add_foreign_key "memes_tags", "tags"
 end
