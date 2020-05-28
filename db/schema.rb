@@ -22,13 +22,14 @@ ActiveRecord::Schema.define(version: 2020_05_28_175602) do
     t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
-  create_table "comments", id: false, force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
+    t.text "body", null: false
     t.bigint "user_id", null: false
     t.bigint "meme_id", null: false
-    t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id", "meme_id"], name: "index_comments_on_user_id_and_meme_id"
+    t.index ["meme_id"], name: "index_comments_on_meme_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "memes", force: :cascade do |t|
@@ -47,10 +48,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_175602) do
   end
 
   create_table "memes_tags", id: false, force: :cascade do |t|
-    t.bigint "meme_id", null: false
-    t.bigint "tag_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "meme_id"
+    t.bigint "tag_id"
     t.index ["meme_id", "tag_id"], name: "index_memes_tags_on_meme_id_and_tag_id"
   end
 

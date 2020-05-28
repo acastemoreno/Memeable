@@ -1,8 +1,9 @@
 class CreateComments < ActiveRecord::Migration[6.0]
   def change
-    create_join_table :users, :memes, table_name: :comments, column_options: { null: false, foreign_key: true } do |t|
+    create_table :comments do |t|
       t.text :body, null: false
-      t.index [:user_id, :meme_id]
+      t.references :user, null: false, foreign_key: true
+      t.references :meme, null: false, foreign_key: true
 
       t.timestamps
     end
