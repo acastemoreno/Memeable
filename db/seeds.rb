@@ -15,7 +15,11 @@ user_votator = User.create(username: "Votator", email: "vot@gmail.com", password
 
 category = Category.find_or_create_by(name: "holi")
 
-meme = Meme.find_or_create_by(title: "amiguito", url_source: "https://imgs.xkcd.com/comics/mbmbam.png", owner: user, category: category, type: "holi")
+meme = Meme.find_or_create_by(title: "today1", url_source: "https://imgs.xkcd.com/comics/mbmbam.png", owner: user, category: category, type: "holi")
+
+Meme.find_or_create_by(title: "amiguito2", url_source: "https://imgs.xkcd.com/comics/mbmbam.png", owner: user, category: category, type: "holi", created_at: "2020-04-20")
+Meme.find_or_create_by(title: "today2", url_source: "https://imgs.xkcd.com/comics/mbmbam.png", owner: user, category: category, type: "holi")
+
 
 meme.tags << tag
 

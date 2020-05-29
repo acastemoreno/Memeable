@@ -1,0 +1,26 @@
+.date_memes{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fill, fit-content);
+  gap: 20px 37px;
+ 
+  .meme{
+    border: 1px solid #000000;
+
+    .image{
+      width: 100%;
+      
+      img{
+        width: 100%;
+      }
+    }
+
+    .author{
+      width: 100%;
+      height: 25px;
+      background: #2F2F2F;
+      border: 1px solid #000000;
+    }
+    
+  }
+}
