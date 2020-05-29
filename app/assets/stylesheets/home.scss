@@ -1,0 +1,35 @@
+.date_memes{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fill, fit-content);
+  gap: 20px 37px;
+ 
+  .meme{
+    display: grid;
+    grid-template-rows: 1fr 25px;;
+    border: 1px solid #000000;
+
+    .image{
+      width: 100%;
+
+      img{
+        width: 100%;
+      }
+    }
+
+    .author{
+      width: 100%;
+      background: #2F2F2F;
+      border: 1px solid #000000;
+
+      p{
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+
+        color: #FFFFFF;
+      }
+    }
+    
+  }
+}

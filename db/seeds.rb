@@ -5,14 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'bcrypt'
+
 tag = Tag.find_or_create_by(name: "funny")
 
-user = User.find_or_create_by(username: "Holi", email: "holi")
-user_votator = User.find_or_create_by(username: "Votator", email: "vot")
+user = User.create(username: "Albert", email: "acastemoreno@gma.com", password: "123456", encrypted_password: BCrypt::Password.create("123456"))
+p user.errors
+user_votator = User.create(username: "Marvin", email: "vot@gmail.com", password: "123456", encrypted_password: BCrypt::Password.create("123456"))
 
 category = Category.find_or_create_by(name: "holi")
 
-meme = Meme.find_or_create_by(title: "amiguito", url_source: "asd", owner: user, category: category, type: "holi")
+meme = Meme.find_or_create_by(title: "today1", url_source: "https://www.pittsburghmagazine.com/content/uploads/2020/03/IMG_2013-771x1024.jpg", owner: user, category: category, type: "holi")
+
+Meme.find_or_create_by(title: "amiguito2", url_source: "https://imgs.xkcd.com/comics/mbmbam.png", owner: user, category: category, type: "holi", created_at: "2020-04-20")
+Meme.find_or_create_by(title: "today2", url_source: "https://e.rpp-noticias.io/normal/2019/08/29/175117_834052.png", owner: user_votator, category: category, type: "holi")
+
 
 meme.tags << tag
 
