@@ -5,14 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'bcrypt'
+
 tag = Tag.find_or_create_by(name: "funny")
 
-user = User.find_or_create_by(username: "Holi", email: "holi")
-user_votator = User.find_or_create_by(username: "Votator", email: "vot")
+user = User.create(username: "Holi", email: "holi@gma.com", password: "123456", encrypted_password: BCrypt::Password.create("123456"))
+p user.errors
+user_votator = User.create(username: "Votator", email: "vot@gmail.com", password: "123456", encrypted_password: BCrypt::Password.create("123456"))
 
 category = Category.find_or_create_by(name: "holi")
 
-meme = Meme.find_or_create_by(title: "amiguito", url_source: "asd", owner: user, category: category, type: "holi")
+meme = Meme.find_or_create_by(title: "amiguito", url_source: "https://imgs.xkcd.com/comics/mbmbam.png", owner: user, category: category, type: "holi")
 
 meme.tags << tag
 
