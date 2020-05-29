@@ -1,0 +1,8 @@
+<h2>My account</h2>
+
+<div class="indented">
+  <p class="caption">Username: <%= current_user.username %></p>
+  <p class="caption">Email: <%= current_user.email %></p>
+  <p class="caption"># of memes: <%= current_user.memes_count %></p>
+  <%=link_to "Edit", edit_user_registration_path %>
+</div>
