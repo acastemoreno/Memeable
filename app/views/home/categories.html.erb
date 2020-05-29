@@ -1,7 +1,7 @@
-<% @dates.each do |date, memes|%>
-  <h2><%= date.strftime('%a, %b %d')%></h2>
+<% @categories.each do |category|%>
+  <h2><%= category.name.downcase.capitalize %></h2>
   <div class="date_memes">
-    <% memes.each do |meme| %>
+    <% category.memes.each do |meme| %>
       <div class="meme">
         <div class="image">
           <img src="<%= meme.url_source %>">
