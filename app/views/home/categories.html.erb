@@ -1,15 +1,6 @@
 <% @categories.each do |category|%>
   <h2><%= category.name.downcase.capitalize %></h2>
-  <div class="date_memes">
-    <% category.memes.each do |meme| %>
-      <div class="meme">
-        <div class="image">
-          <img src="<%= meme.url_source %>">
-        </div>
-        <div class="author">
-         <p>Created by <%= meme.owner.username%></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
+
+  <%= render "shared/memes", memes: category.memes %>
+
 <%end%>
