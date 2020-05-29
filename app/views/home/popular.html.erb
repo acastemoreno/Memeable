@@ -1,0 +1,13 @@
+<h2>Most Popular Memes</h2>
+<div class="date_memes">
+  <% @memes.each do |meme| %>
+    <div class="meme">
+      <div class="image">
+        <img src="<%= meme.url_source %>">
+      </div>
+      <div class="author">
+        <p>Created by <%= meme.owner.username%></p>
+      </div>
+    </div>
+  <% end %>
+</div>

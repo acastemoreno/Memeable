@@ -6,4 +6,8 @@ class HomeController < ApplicationController
   def categories
     @categories = Category.preload(:memes)
   end
+
+  def popular
+    @memes = Meme.preload(:owner).order('votes_count DESC')
+  end
 end

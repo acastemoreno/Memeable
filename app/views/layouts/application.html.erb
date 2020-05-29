@@ -15,9 +15,9 @@
     <header>
       <%= image_tag "memeable_logo.png" %>
       <nav class="pages_links">
-        <a href="#">By Category</a>
-        <a href="#">By Popularity</a>
-        <a href="#">Search</a>
+        <%= link_to "By Category", categories_path %>
+        <%= link_to "By Popularity", popularity_path %>
+        <%= link_to "Search", "#" %>
       </nav>
       <div class="login_menu">
         <%if user_signed_in?%>
@@ -37,7 +37,10 @@
     </main>
 
     <footer>
-      <p>Made by <%=link_to "Albert Castellano", "https://github.com/acastemoreno/" %></p>
+      <p>Made by 
+        <%=link_to "Albert Castellano", "https://github.com/acastemoreno/" %>, 
+        <%= link_to "Marvin Carrasco", "https://github.com/marccmartian/" %> 
+      </p>
       <p>Codeable #2</p>
     </footer>
   </body>
