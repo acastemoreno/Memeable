@@ -143,14 +143,6 @@ footer{
     width: 372px;
     height: 35px;
   }
-
-  input[type="submit"]{
-    padding-left: 10px;
-    padding-right: 10px;
-    line-height: 18px;
-    min-width: 98px;
-    max-width: fit-content;
-  }
   
   a {
     font-weight: normal;
@@ -159,5 +151,26 @@ footer{
     text-decoration: none;
 
     color: #78CFBA;
+  }
+}
+
+.actions{
+  display: flex;
+  flex-direction: column;
+  
+  input{
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 18px;
+    min-width: 98px;
+    max-width: fit-content;
+  }
+}
+
+.indented.actions{
+  margin-top: 0px;
+
+  input{
+    margin-top: 0px;
   }
 }

@@ -9,7 +9,7 @@ require 'bcrypt'
 
 tag = Tag.find_or_create_by(name: "funny")
 
-user = User.create(username: "Albert", email: "acastemoreno@gma.com", password: "123456", encrypted_password: BCrypt::Password.create("123456"))
+user = User.create(username: "Albert", email: "acastemoreno@gmail.com", password: "123456", encrypted_password: BCrypt::Password.create("123456"))
 user_votator = User.create(username: "Marvin", email: "vot@gmail.com", password: "123456", encrypted_password: BCrypt::Password.create("123456"))
 
 
