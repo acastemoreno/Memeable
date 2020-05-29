@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get "/popularity", to: "home#popular"
+
+  resources :memes, only: [:show, :new, :create, :edit, :update] do
+    resources :comments, only:[:show]
+  end
 end

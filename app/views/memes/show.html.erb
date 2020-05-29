@@ -1,0 +1,19 @@
+<h1> <%= @meme.title %> </h1>
+<section>
+  <div class="image">
+    <img src="<%= @meme.url_source %>" alt="">
+  </div>
+  <div>Category: <%= @meme.category.name %> </div>
+  <div>Votes: <%= @meme.votes_count %> </div>
+  <div> <%= link_to "Login to vote!", "#" %> </div>
+</section>
+<section>
+  <h2>Comments:</h2>
+  <div> <%= link_to "Login to add comment!", "#" %> </div>
+  <div>
+    <% @meme.comments.each do |comment| %>
+      <%= comment.user.username %>
+      <%= comment.body %>
+    <% end %>
+  </div>
+</section>
