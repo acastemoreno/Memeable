@@ -13,10 +13,12 @@
   <body>
 
     <header>
-      <%= image_tag "memeable_logo.png" %>
+      <%= link_to render_link_if_not_actua_pathl(root_path) do %>
+        <%= image_tag "memeable_logo.png" %>
+      <%end%> 
       <nav class="pages_links">
-        <%= link_to "By Category", categories_path %>
-        <%= link_to "By Popularity", popularity_path %>
+        <%= link_to "By Category", render_link_if_not_actual_path(categories_path) %>
+        <%= link_to "By Popularity", render_link_if_not_actual_path(popularity_path) %>
         <%= link_to "Search", "#" %>
       </nav>
       <div class="login_menu">
@@ -25,7 +27,7 @@
           <a href="#">My Account</a>
           <%=link_to "Log Out", destroy_user_session_path, method: :delete%>
         <%else%>
-          <%=link_to "Log In", new_user_session_path%>
+          <%=link_to "Log In", render_link_if_not_actual_path(new_user_session_path)%>
         <%end%>
       </div>
     </header>
@@ -38,7 +40,7 @@
 
     <footer>
       <p>Made by 
-        <%=link_to "Albert Castellano", "https://github.com/acastemoreno/" %>, 
+        <%= link_to "Albert Castellano", "https://github.com/acastemoreno/" %>, 
         <%= link_to "Marvin Carrasco", "https://github.com/marccmartian/" %> 
       </p>
       <p>Codeable #2</p>
