@@ -20,6 +20,7 @@
         <%= link_to "By Category", render_link_if_not_actual_path(categories_path) %>
         <%= link_to "By Popularity", render_link_if_not_actual_path(popularity_path) %>
         <%= link_to "Search", "#" %>
+        <%= link_to "Create Meme", render_link_if_not_actual_path(new_meme_path) %>
       </nav>
       <div class="login_menu">
         <%if user_signed_in?%>

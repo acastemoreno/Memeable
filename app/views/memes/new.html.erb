@@ -1,0 +1,29 @@
+<h2>Create a meme!</h2>
+<%= form_for(@meme, html: { class: "indented" }) do |f| %>
+  <ul>
+  <% @meme.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+
+  <div class="title">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autocomplete: "title" %>
+  </div>
+
+  <div class="url_source">
+    <%= f.label :url_source %><br />
+    <%= f.text_field :url_source, autocomplete: "url_source" %>
+  </div>
+
+  <div class="category_id">
+    <%= f.label :category_id %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create!" %>
+  </div>
+
+<% end %>
+
