@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  def show
-    meme = Meme.find(params[:id])
+  def create
+    
   end
 end

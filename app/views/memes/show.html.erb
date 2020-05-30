@@ -1,19 +1,23 @@
-<h1> <%= @meme.title %> </h1>
-<section>
-  <div class="image">
-    <img src="<%= @meme.url_source %>" alt="">
-  </div>
-  <div>Category: <%= @meme.category.name %> </div>
-  <div>Votes: <%= @meme.votes_count %> </div>
-  <div> <%= link_to "Login to vote!", "#" %> </div>
-</section>
-<section>
-  <h2>Comments:</h2>
-  <div> <%= link_to "Login to add comment!", "#" %> </div>
-  <div>
-    <% @meme.comments.each do |comment| %>
-      <%= comment.user.username %>
-      <%= comment.body %>
-    <% end %>
-  </div>
-</section>
+<div class="main-meme-container">
+  <h1 class="meme-title"> <%= @meme.title %> </h1>
+  <section class="meme-container">
+    <div class="meme__image">
+      <img src="<%= @meme.url_source %>" alt="">
+    </div>
+    <div class="meme__category">Category: <span> <%= @meme.category.name %> </span></div>
+    <div class="meme__votes">
+      <div class="meme__votes--count">Votes: <span> <%= @meme.votes_count %> </span></div>
+      <div class="meme__votes--link"> <%= link_to "Login to vote!", "#" %> </div>    
+    </div>
+  </section>
+  <section class="comments-container">
+    <h2 class="comment__title">Comments:</h2>
+    <div class="comment__link"> <%= link_to "Login to add comment!", "#" %> </div>
+    <div class="comment__wrap">
+      <% @meme.comments.each do |comment| %>
+        <p class="comment__user"> <%= comment.user.username %> </p>
+        <p class="comment__body"> <%= comment.body %> </p>      
+      <% end %>
+    </div>
+  </section>
+</div>
