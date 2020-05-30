@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  get "/profile", to: "home#profile"
   root to: "home#index"
   get "/categories", to: "home#categories"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -8,6 +7,6 @@ Rails.application.routes.draw do
   get "/popularity", to: "home#popular"
 
   resources :memes, only: [:show, :new, :create, :edit, :update] do
-    resources :comments, only:[:show]
+    resources :comments, only:[:create]
   end
 end

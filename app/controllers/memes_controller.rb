@@ -3,6 +3,7 @@ class MemesController < ApplicationController
 
   def show
     @meme = Meme.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
