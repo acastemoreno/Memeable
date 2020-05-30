@@ -68,9 +68,20 @@
   color: #78CFBA;
 }
 
-.comment__wrap{
+.comment__wrap,
+.comment__area{
   border: 1px solid black;
   border-radius: .8em;
   margin: .5em 0;
   padding: .5em 1em;
+  width: 100%;
+}
+
+.comment_create{
+  padding: .5em 1em;
+  display: block;
+  margin-left: auto;
+}
+.comment_create:hover{
+  cursor: pointer;
 }
