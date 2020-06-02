@@ -6,10 +6,45 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+    <header>
+      <%= link_to render_link_if_not_actual_path(root_path) do %>
+        <%= image_tag "memeable_logo.png" %>
+      <%end%> 
+      <nav class="pages_links">
+        <%= link_to "By Category", render_link_if_not_actual_path(categories_path) %>
+        <%= link_to "By Popularity", render_link_if_not_actual_path(popularity_path) %>
+        <%= link_to "Search", "#" %>
+        <%= link_to "Create Meme", render_link_if_not_actual_path(new_meme_path) %>
+      </nav>
+      <div class="login_menu">
+        <%if user_signed_in?%>
+          <p>Welcome, <%= current_user.username %></p>
+          <%=link_to "My Account", render_link_if_not_actual_path(profile_path) %>
+          <%=link_to "Log Out", destroy_user_session_path, method: :delete%>
+        <%else%>
+          <%=link_to "Log In", render_link_if_not_actual_path(new_user_session_path)%>
+        <%end%>
+      </div>
+    </header>
+
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <p>Made by 
+        <%= link_to "Albert Castellano", "https://github.com/acastemoreno/" %>, 
+        <%= link_to "Marvin Carrasco", "https://github.com/marccmartian/" %> 
+      </p>
+      <p>Codeable #2</p>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,6 @@
+<% @categories.each do |category|%>
+  <h2><%= category.name.downcase.capitalize %></h2>
+
+  <%= render "shared/memes", memes: category.memes %>
+
+<%end%>

@@ -1,0 +1,87 @@
+// Place all the styles related to the Memes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.main-meme-container{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.meme-title{
+  text-align: center;
+  margin-bottom: .5em;
+}
+
+.meme-container{
+  display: grid;
+  grid:
+    "image image"
+    "category votes" 70px
+    /.5fr .5fr;
+  margin-bottom: 40px;
+}
+.meme__image{
+  grid-area: image;
+}
+.meme__category{
+  grid-area: category;
+  display: flex;
+  align-items: center;
+}
+.meme__votes{
+  grid-area: votes;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.meme__category span,
+.meme__votes--count span{
+  background-color: #181F33;
+  color: white;
+  border-radius: .5em;
+  padding: .3em .8em;
+  margin-left: .5em;
+}
+
+.meme__votes--link{
+  width: 30%;
+  text-align: center;
+  margin-left: .5em;
+}
+
+.meme__image img{
+  width: 100%;
+}
+
+.comment__title{
+  margin-bottom: .5em;
+}
+
+.comment__link a,
+.meme__votes--link a{
+  color: #DC7F9B;
+  text-decoration: none;
+}
+
+.comment__user{
+  color: #78CFBA;
+}
+
+.comment__wrap,
+.comment__area{
+  border: 1px solid black;
+  border-radius: .8em;
+  margin: .5em 0;
+  padding: .5em 1em;
+  width: 100%;
+}
+
+.comment_create{
+  padding: .5em 1em;
+  display: block;
+  margin-left: auto;
+}
+.comment_create:hover{
+  cursor: pointer;
+}

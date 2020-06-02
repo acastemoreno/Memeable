@@ -1,0 +1,39 @@
+<div class="main-meme-container">
+  <h1 class="meme-title"> <%= @meme.title %> </h1>
+  <section class="meme-container">
+    <div class="meme__image">
+      <img src="<%= @meme.url_source %>" alt="">
+    </div>
+    <div class="meme__category">Category: <span> <%= @meme.category.name %> </span></div>
+    <div class="meme__votes">
+      <div class="meme__votes--count">Votes: <span> <%= @meme.votes_count %> </span></div>
+      <div class="meme__votes--link"> <%= link_to "Login to vote!", "#" %> </div>    
+    </div>
+  </section>
+  <section class="comments-container">
+    <h2 class="comment__title">Comments:</h2>
+    <div class="comment__link"> <%= link_to "Login to add comment!", "#" %> </div>
+
+    <%= form_for @comment, url: meme_comments_path(@meme) do |f| %>
+      <ul>
+        <% @comment.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+      <p>
+        <!-- <%= f.label :body %><br /> -->
+        <%= f.text_area :body, class: 'comment__area' %>
+      </p>
+      <div>
+        <%= f.submit(class: "comment_create") %>
+      </div>
+    <% end %>
+
+    <div class="comment__wrap">
+      <% @meme.comments.each do |comment| %>
+        <p class="comment__user"> <%= comment.user.username %> </p>
+        <p class="comment__body"> <%= comment.body %> </p>      
+      <% end %>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,12 @@
+<div class="grouped_memes">
+  <% memes.each do |meme| %>
+    <div class="meme">
+      <%= link_to meme_path(meme), class: "image" do %>
+        <img src="<%= meme.url_source %>">
+      <% end %>
+      <div class="author">
+        <p>Created by <%= meme.owner.username%></p>
+      </div>
+    </div>
+  <% end %>
+</div>

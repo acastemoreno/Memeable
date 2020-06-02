@@ -1,0 +1,6 @@
+<% @dates.each do |date, memes|%>
+  <h2><%= date.strftime('%a, %b %d')%></h2>
+
+  <%= render "shared/memes", memes: memes %>
+
+<%end%>
